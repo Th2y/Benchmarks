@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Benchmarks.CollectionContains.CollectionContainsBenchmark-20260318-164054</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.8037/25H2/2025Update/HudsonValley2)
+11th Gen Intel Core i5-11400H 2.70GHz (Max: 2.69GHz), 1 CPU, 12 logical and 6 physical cores
+.NET SDK 10.0.201
+  [Host]     : .NET 10.0.5 (10.0.5, 10.0.526.15411), X64 RyuJIT x86-64-v4
+  DefaultJob : .NET 10.0.5 (10.0.5, 10.0.526.15411), X64 RyuJIT x86-64-v4
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method          </th><th>CollectionSize</th><th>EnableEarlyExit</th><th>Mean   </th><th>Error  </th><th>StdDev </th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>LinqAny_MultipleChecks</td><td>10</td><td>False</td><td>62.249 ns</td><td>1.0827 ns</td><td>1.0128 ns</td><td>-</td>
+</tr><tr><td>Foreach_SinglePass</td><td>10</td><td>False</td><td>9.957 ns</td><td>0.2237 ns</td><td>0.2297 ns</td><td>-</td>
+</tr><tr><td>For_SinglePass</td><td>10</td><td>False</td><td>9.702 ns</td><td>0.1577 ns</td><td>0.1398 ns</td><td>-</td>
+</tr><tr><td>HashSet_ContainsLookup</td><td>10</td><td>False</td><td>6.771 ns</td><td>0.1669 ns</td><td>0.2050 ns</td><td>-</td>
+</tr><tr><td>LinqAny_MultipleChecks</td><td>10</td><td>True</td><td>26.698 ns</td><td>0.5447 ns</td><td>0.5350 ns</td><td>-</td>
+</tr><tr><td>Foreach_SinglePass</td><td>10</td><td>True</td><td>6.602 ns</td><td>0.1315 ns</td><td>0.1230 ns</td><td>-</td>
+</tr><tr><td>For_SinglePass</td><td>10</td><td>True</td><td>6.745 ns</td><td>0.1517 ns</td><td>0.1345 ns</td><td>-</td>
+</tr><tr><td>HashSet_ContainsLookup</td><td>10</td><td>True</td><td>9.389 ns</td><td>0.2140 ns</td><td>0.2002 ns</td><td>-</td>
+</tr><tr><td>LinqAny_MultipleChecks</td><td>100</td><td>False</td><td>565.502 ns</td><td>11.0075 ns</td><td>9.7578 ns</td><td>-</td>
+</tr><tr><td>Foreach_SinglePass</td><td>100</td><td>False</td><td>91.309 ns</td><td>1.8402 ns</td><td>2.2599 ns</td><td>-</td>
+</tr><tr><td>For_SinglePass</td><td>100</td><td>False</td><td>88.475 ns</td><td>1.8048 ns</td><td>2.4705 ns</td><td>-</td>
+</tr><tr><td>HashSet_ContainsLookup</td><td>100</td><td>False</td><td>6.519 ns</td><td>0.0959 ns</td><td>0.0897 ns</td><td>-</td>
+</tr><tr><td>LinqAny_MultipleChecks</td><td>100</td><td>True</td><td>25.737 ns</td><td>0.5125 ns</td><td>0.5263 ns</td><td>-</td>
+</tr><tr><td>Foreach_SinglePass</td><td>100</td><td>True</td><td>6.132 ns</td><td>0.0656 ns</td><td>0.0548 ns</td><td>-</td>
+</tr><tr><td>For_SinglePass</td><td>100</td><td>True</td><td>6.483 ns</td><td>0.0522 ns</td><td>0.0436 ns</td><td>-</td>
+</tr><tr><td>HashSet_ContainsLookup</td><td>100</td><td>True</td><td>9.118 ns</td><td>0.1670 ns</td><td>0.1562 ns</td><td>-</td>
+</tr><tr><td>LinqAny_MultipleChecks</td><td>1000</td><td>False</td><td>6,859.445 ns</td><td>105.2003 ns</td><td>98.4045 ns</td><td>-</td>
+</tr><tr><td>Foreach_SinglePass</td><td>1000</td><td>False</td><td>1,031.793 ns</td><td>16.5404 ns</td><td>15.4719 ns</td><td>-</td>
+</tr><tr><td>For_SinglePass</td><td>1000</td><td>False</td><td>1,034.019 ns</td><td>19.4236 ns</td><td>20.7830 ns</td><td>-</td>
+</tr><tr><td>HashSet_ContainsLookup</td><td>1000</td><td>False</td><td>7.331 ns</td><td>0.1760 ns</td><td>0.1807 ns</td><td>-</td>
+</tr><tr><td>LinqAny_MultipleChecks</td><td>1000</td><td>True</td><td>28.184 ns</td><td>0.5893 ns</td><td>0.6787 ns</td><td>-</td>
+</tr><tr><td>Foreach_SinglePass</td><td>1000</td><td>True</td><td>6.694 ns</td><td>0.1635 ns</td><td>0.2068 ns</td><td>-</td>
+</tr><tr><td>For_SinglePass</td><td>1000</td><td>True</td><td>7.113 ns</td><td>0.1688 ns</td><td>0.1579 ns</td><td>-</td>
+</tr><tr><td>HashSet_ContainsLookup</td><td>1000</td><td>True</td><td>9.501 ns</td><td>0.2189 ns</td><td>0.2606 ns</td><td>-</td>
+</tr><tr><td>LinqAny_MultipleChecks</td><td>10000</td><td>False</td><td>71,946.720 ns</td><td>1,429.2483 ns</td><td>1,588.6057 ns</td><td>-</td>
+</tr><tr><td>Foreach_SinglePass</td><td>10000</td><td>False</td><td>10,437.329 ns</td><td>204.4805 ns</td><td>200.8272 ns</td><td>-</td>
+</tr><tr><td>For_SinglePass</td><td>10000</td><td>False</td><td>10,230.117 ns</td><td>195.1971 ns</td><td>200.4530 ns</td><td>-</td>
+</tr><tr><td>HashSet_ContainsLookup</td><td>10000</td><td>False</td><td>6.323 ns</td><td>0.0277 ns</td><td>0.0231 ns</td><td>-</td>
+</tr><tr><td>LinqAny_MultipleChecks</td><td>10000</td><td>True</td><td>26.563 ns</td><td>0.5299 ns</td><td>0.4957 ns</td><td>-</td>
+</tr><tr><td>Foreach_SinglePass</td><td>10000</td><td>True</td><td>6.228 ns</td><td>0.1478 ns</td><td>0.1383 ns</td><td>-</td>
+</tr><tr><td>For_SinglePass</td><td>10000</td><td>True</td><td>7.782 ns</td><td>0.1182 ns</td><td>0.1106 ns</td><td>-</td>
+</tr><tr><td>HashSet_ContainsLookup</td><td>10000</td><td>True</td><td>8.872 ns</td><td>0.0580 ns</td><td>0.0453 ns</td><td>-</td>
+</tr></tbody></table>
+</body>
+</html>
